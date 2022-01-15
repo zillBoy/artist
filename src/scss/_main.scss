@@ -1,6 +1,7 @@
 // Abstract
 @import './abstract/variable';
 @import './abstract/mixins';
+@import './abstract/functions';
 
 // Base
 @import './base/reset';
@@ -11,6 +12,8 @@
 @import './components/navbar';
 @import './components/input';
 @import './components/noartist';
+@import './components/searchedartist';
+@import './components/badge';
 
 // Layout
 

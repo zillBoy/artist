@@ -7,7 +7,6 @@ import { ReactComponent as Cancel } from '../../assets/images/cancel.svg'
 const Input = () => {
     
     const [search, setSearch] = useState('')
-    const [artist, setArtist] = useState({})
     const [showCancel, setShowCancel] = useState(false)
 
     const changeHandler = event => setSearch(event.target.value)

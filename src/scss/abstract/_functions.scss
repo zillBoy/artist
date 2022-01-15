@@ -1,0 +1,4 @@
+@function get-vw($target) { 
+    $vw-context: (1000*.01) * 0.1rem;
+    @return calc(($target/$vw-context) * 1vw);
+}
