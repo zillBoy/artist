@@ -6,11 +6,14 @@ import { ReactComponent as Sun } from '../../assets/images/sun.svg'
 import { ReactComponent as Moon } from '../../assets/images/moon.svg'
 
 const Navbar = () => {
+    
     return (
         <ul className='navbar__container'>
-            <Link to='/' className='navbar__item'>
-                <Logo className='navbar__item-logo' />
-            </Link>
+            <li className='navbar__item'>
+                <Link to='/'>
+                    <Logo className='navbar__item-logo' />
+                </Link>
+            </li>
             <li className='navbar__item'>
                 <ul className='navbar__item-page'>
                     <Link to='/artist' className='navbar__item navbar-link'>Artist</Link>
