@@ -2,33 +2,28 @@
     @include center;
     flex-direction: column;
     height: 80vh;
+
+    @include respond(tab-land) {
+        &-image {
+            width: 20%;
+        }
+    }
+
+    @include respond(tab-port) {
+        &-image {
+            width: 20%;
+        }
+    }
+
+    @include respond(phone) {
+        &-image {
+            width: 70%;
+        }
+    }
+    
 }
 
 .noartist_content {
     text-align: center;
     margin-top: 2rem;
-}
-
-@media only screen and (max-width: 75em) {
-    .noartist__container {
-        &-image {
-            width: 20%;
-        }
-    }
-}
-
-@media only screen and (max-width: 56.25em) {
-    .noartist__container {
-        &-image {
-            width: 20%;
-        }
-    }
-}
-
-@media only screen and (max-width: 37.5em) {
-    .noartist__container {
-        &-image {
-            width: 70%;
-        }
-    }
 }
