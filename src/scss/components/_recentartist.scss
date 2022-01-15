@@ -1,0 +1,53 @@
+.recentartist__container {
+    margin-left: 5%;
+    margin-top: 2%;
+    width: 90%;
+}
+
+// Artist List
+
+.artistlist__container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    @include respond(tab-land) {
+        justify-content: space-evenly;
+    }
+
+    @include respond(phone) {
+        justify-content: center;
+    }
+}
+
+
+// Artist Card
+
+.artistcard__container {
+    background-color: $white-color;
+    box-shadow: $primray-box-shadow;
+    width: $artist-recentcard-width;
+    height: $artist-recentcard-height;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    text-align: center;
+    margin: 1rem 0rem;
+
+    @include respond(phone) {
+        margin: 1rem;
+    }
+}
+
+.artistcard-image {
+    width: $artist-recentcard-image;
+    height: $artist-recentcard-image;
+    border-radius: calc($artist-recentcard-image / 2);
+    object-fit: cover;
+    margin-top: 2rem;
+}
+
+.artistcard-content {
+    text-align: left;
+    margin: 0 3rem;
+    margin-top: 3rem;
+}

@@ -14,11 +14,26 @@ $navbar-width: 90%;
 // Artist
 $artist-search-input-width: 30rem;
 
-// Artist Searched Card
+// Artist -- Searched Card
 $artist-searchedcard-image: 12rem;
 $artist-searchedcard-width: 51rem;
 $artist-searchedcard-height: 23rem;
 
+// Arirst -- Recent Card
+$artist-recentcard-image: 19rem;
+$artist-recentcard-width: 23rem;
+$artist-recentcard-height: 33.9rem;
+
 // Badge
 $badge-width: 8.3rem;
 $badge-height: 3rem;
+
+// Box Shadow
+
+$primray-box-shadow: 0px 0.1px 0.5px rgba(0, 0, 0, 0.02),
+    0.1px 0.3px 1.1px rgba(0, 0, 0, 0.028),
+    0.1px 0.5px 2.1px rgba(0, 0, 0, 0.035),
+    0.2px 0.9px 3.8px rgba(0, 0, 0, 0.042),
+    0.4px 1.7px 7.1px rgba(0, 0, 0, 0.05),
+    1px 4px 17px rgba(0, 0, 0, 0.07)
+;

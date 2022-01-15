@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar/Navbar'
 import Input from '../components/Input/Input'
 import NoArtist from '../components/Artist/NoArtist'
 import SearchedArtist from '../components/Artist/SearchedArtist'
+import RecentSearchedArtist from '../components/Artist/RecentSearchedArtist'
 
 const Artist = () => {
 
@@ -39,14 +40,17 @@ const Artist = () => {
             ],
             "id": "510"
         }
-        setArtist(artist)
+        // setArtist(artist)
     }, [])
 
     return (
         <>
             <Navbar />
             <Input />
-            {Object.keys(artist).length !== 0 ? <SearchedArtist artist={artist} /> : <NoArtist />}
+            {Object.keys(artist).length !== 0 
+            ? <SearchedArtist artist={artist} />
+            : <RecentSearchedArtist /> // <NoArtist />
+            }
         </>
     )
 }

@@ -10,6 +10,11 @@ body {
     font-size: 2.2rem;
 }
 
+.heading-quaternary {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
 .paragraph {
     font-size: 1.6rem;
 }
@@ -20,6 +25,10 @@ body {
     font-weight: 500;
     letter-spacing: 0.2rem;
     color: $white-color;
+}
+
+.paragraph-tertiary {
+    font-size: 1.8rem;
 }
 
 // Navbar
