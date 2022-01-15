@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from 'react'
+import { BASE_URL, AUTH } from '../../utils/api/Api'
 
 // Icons
 import { ReactComponent as Search } from '../../assets/images/search.svg'
 import { ReactComponent as Cancel } from '../../assets/images/cancel.svg'
 
-const Input = () => {
+const Input = ({ setArtist }) => {
     
     const [search, setSearch] = useState('')
     const [showCancel, setShowCancel] = useState(false)
 
-    const changeHandler = event => setSearch(event.target.value)
+    const changeHandler = event => {
+        setSearch(event.target.value)
+        setArtist({})
+    }
 
     const clearInputHandler = () => setSearch('')
 
@@ -22,7 +26,10 @@ const Input = () => {
     }
 
     const getArtistData = () => {
-        console.log('now the artist data comes: ', search)
+        fetch(`${BASE_URL}/artists/${search}/?${AUTH}`)
+        .then(response => response.json())
+        .then(result => setArtist(result))
+        .catch(err => console.log('get artist error: ', err.message))
     }
 
     useEffect(() => {
