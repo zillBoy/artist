@@ -1,13 +1,12 @@
 import React from 'react'
-import NoArtistImage from '../../assets/images/music1.png'
 
-const NoArtist = () => {
+const NoArtist = ({ image, header, para }) => {
     return (
         <main className='noartist__container'>
-            <img className='noartist__container-image' src={NoArtistImage} alt='no artist' />
+            <img className='noartist__container-image' src={image} alt='no artist' />
             <article className='noartist_content'>
-                <h2 className='heading-secondary'>Search your favorite artist</h2>
-                <p className='paragraph'>Never miss another show</p>
+                <h2 className='heading-secondary'>{header}</h2>
+                <p className='paragraph'>{para}</p>
             </article>
         </main>
     )

@@ -2,6 +2,10 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+.heading-primary {
+    font-size: 6.6rem;
+}
+
 .heading-secondary {
     font-size: 2.6rem;
 }
@@ -17,6 +21,10 @@ body {
 
 .paragraph {
     font-size: 1.6rem;
+}
+
+.paragraph-primary {
+    font-size: 2.4rem;
 }
 
 .paragraph-secondary {
@@ -38,4 +46,10 @@ body {
     text-decoration: none;
     color: $black-color;
     font-size: 1.6rem;
+}
+
+// Event
+
+.artistevent-para {
+    margin-top: -1rem;
 }

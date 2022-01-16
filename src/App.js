@@ -1,7 +1,8 @@
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Artist from './pages/Artist'
 import Home from './pages/Home'
+import Event from './pages/Event'
 
 const App = () => {
   return (
@@ -9,6 +10,8 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/artist' element={<Artist />} />
+        <Route path='/event' element={<Event />} />
+        <Route path='/event/:artist' element={<Event />} />
       </Routes>
     </BrowserRouter>
   )

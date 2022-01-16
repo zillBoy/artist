@@ -1,0 +1,35 @@
+.eventartist__container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.eventartist__imagediv {
+    &-img {
+        width: $event-artist-image;
+        height: $event-artist-image;
+        border-radius: calc($event-artist-image / 2);
+        object-fit: cover;
+    }
+}
+
+.eventartist__content {
+    margin-top: -3rem;
+    & > div {
+        margin: 3rem 1rem;
+    }
+}
+
+.eventartist__socialmedia {
+    
+    margin-top: 2%;
+
+    &--icon {
+        margin-right: 1.6%;
+        cursor: pointer;
+    }
+
+    &--iconreset {
+        margin-right: -0.6%;
+    }
+}
