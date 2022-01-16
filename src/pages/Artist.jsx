@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-
+import { useParams } from 'react-router-dom'
 import { BASE_URL, AUTH } from '../utils/api/Api'
 
 import Navbar from '../components/Navbar/Navbar'
@@ -12,6 +12,7 @@ import NoArtistImage from '../assets/images/music1.png'
 
 const Artist = () => {
 
+    const { name } = useParams()
     const [artist, setArtist] = useState({})
     const [loading, setLoading] = useState(false)
 
@@ -30,6 +31,12 @@ const Artist = () => {
         .finally(() => setLoading(false))
     }
 
+    useEffect(() => {
+        if (name !== undefined) {
+            getArtistData(name)
+        }
+    }, [])
+
     return (
         <>
             <Navbar />
@@ -40,7 +47,7 @@ const Artist = () => {
             {loading ? <Spinner /> 
             : Object.keys(artist).length !== 0 
             ? <SearchedArtist artist={artist} />
-            : <NoArtist 
+            : <NoArtist
                 image={NoArtistImage}
                 header='Search your favorite artist'
                 para='Never miss another show'

@@ -9,8 +9,11 @@ const Input = ({ onChangeHandler, onEnterPress = () => {} }) => {
     const [showCancel, setShowCancel] = useState(false)
 
     const changeHandler = event => {
-        setSearch(event.target.value)
+        let name = event.target.value
+        setSearch(name)
         onChangeHandler()
+
+        window.history.replaceState(null, "New Page Title", `/artist/${name}`)
     }
 
     const clearInputHandler = () => {
