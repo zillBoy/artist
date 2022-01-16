@@ -5,7 +5,7 @@ import moment from 'moment'
 import Button from '../Button/Button'
 import EventPara from './EventPara'
 
-import { formatNumber } from '../../utils/Utils'
+import { formatNumber, visitWebsiteHandler } from '../../utils/Utils'
 
 const EventCard = ({ event, index }) => {
 
@@ -15,10 +15,6 @@ const EventCard = ({ event, index }) => {
         const ticketOffer = event.offers.find(offer => offer.type === 'Tickets')
         if (ticketOffer !== undefined) setTicket(ticketOffer)
     }, [])
-
-    const getTicketHandler = (ticket) => {
-        window.open(ticket.url, "_blank")
-    }
 
     return (
         <div className='eventcard__container'>
@@ -38,7 +34,7 @@ const EventCard = ({ event, index }) => {
             </div>
             {Object.keys(ticket).length !== 0 && <>
                 <div className='eventcard__btn'>
-                    <Button onClick={() => getTicketHandler(ticket)} className='event' text='Get Ticket' />
+                    <Button onClick={() => visitWebsiteHandler(ticket.url)} className='event' text='Get Ticket' />
                 </div>
             </>}
         </div>

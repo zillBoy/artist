@@ -1,8 +1,8 @@
 import React from 'react'
-import { Twitter, Facebook, Globe, Instagram, Youtube } from 'react-feather'
 
 import AritstPlaceholderImage from '../../assets/images/artistplaceholder.jpg'
 import Input from '../Input/Input'
+import SocialMediaList from '../SocialMedia/SocialMediaList'
 
 const EventArtist = ({ artist }) => {
     return (
@@ -17,11 +17,7 @@ const EventArtist = ({ artist }) => {
                         <p className='paragraph-primary artistevent-para'>{artist?.upcoming_event_count} Upcoming Events</p>
                     </div>
                     <div className='eventartist__socialmedia'>
-                        <Twitter className='eventartist__socialmedia--iconreset eventartist__socialmedia--icon' />
-                        <Facebook className='eventartist__socialmedia--iconreset eventartist__socialmedia--icon' />
-                        <Globe className='eventartist__socialmedia--icon' />
-                        <Instagram className='eventartist__socialmedia--icon' />
-                        <Youtube className='eventartist__socialmedia--icon' />
+                        <SocialMediaList links={artist?.links} />
                     </div>
                 </div>
             </div>

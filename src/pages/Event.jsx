@@ -10,9 +10,9 @@ import { AUTH, BASE_URL } from '../utils/api/Api'
 const Event = () => {
 
     const { artist } = useParams()
-    // const artistInfo = {name: 'Maroon 5', image: 'https://photos.bandsintown.com/large/8479721.jpeg', upcoming_event_count: 11}
     const [artistInfo, setArtistInfo] = useState({})
     const [events, setEvents] = useState([])
+    const [loading, setLoading] = useState(true)
 
     const getEventData = (artist) => {
         fetch(`${BASE_URL}/artists/${artist}/events/?${AUTH}`)
@@ -26,6 +26,7 @@ const Event = () => {
             
         })
         .catch(err => console.log('event error: ', err.message))
+        .finally(() => setLoading(false))
     }
 
     useEffect(() => {
@@ -41,11 +42,13 @@ const Event = () => {
                 image={NoArtistImage}
                 header='Select an artist to see events'
                 para='Attend all the amazing events'
-            /> : <div className='event__container'>
-                <EventArtist artist={artistInfo} />
-                <hr className='event_hrline' />
-                <EventList events={events} />
-            </div>}
+            /> : loading ? <p>Loading</p> : <>
+                <div className='event__container'>
+                    <EventArtist artist={artistInfo} />
+                    <hr className='event_hrline' />
+                    <EventList events={events} />
+                </div>
+            </>}
             
         </>
     )
