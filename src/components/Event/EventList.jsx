@@ -1,12 +1,10 @@
 import React from 'react'
 import EventCard from './EventCard'
 
-const EventList = () => {
+const EventList = ({ events }) => {
     return (
         <div className='eventlist__container'>
-            <EventCard />
-            <EventCard />
-            <EventCard />
+            {events.map((event, index) => <EventCard key={event.id} event={event} index={index} />)}
         </div>
     )
 }

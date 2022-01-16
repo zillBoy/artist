@@ -1,28 +1,46 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { MapPin, Calendar } from 'react-feather'
+import moment from 'moment'
+
 import Button from '../Button/Button'
 import EventPara from './EventPara'
 
-const EventCard = () => {
+import { formatNumber } from '../../utils/Utils'
+
+const EventCard = ({ event, index }) => {
+
+    const [ticket, setTicket] = useState({})
+
+    useEffect(() => {
+        const ticketOffer = event.offers.find(offer => offer.type === 'Tickets')
+        if (ticketOffer !== undefined) setTicket(ticketOffer)
+    }, [])
+
+    const getTicketHandler = (ticket) => {
+        window.open(ticket.url, "_blank")
+    }
+
     return (
         <div className='eventcard__container'>
-            <h2 className='heading-secondary eventcard-header'>Event #01</h2>
+            <h2 className='heading-secondary eventcard-header'>Event #{formatNumber(index + 1)}</h2>
             <div className='eventcard__content'>
                 <div>
-                    <EventPara Icon={MapPin} text='Bislett Stadion' />
-                    <EventPara Icon={Calendar} text='01 Oct, 2022' />
+                    <EventPara Icon={MapPin} text={event?.venue?.name} />
+                    <EventPara Icon={Calendar} text={moment(event?.datetime).format('MMMM Do YYYY')} />
                 </div>
                 <div className='eventcard__subcontent'>
                     <hr className='event_hrline eventcard_hrline' />
                     <div className='eventcard__paradiv'>
-                        <EventPara text='AMEX PGA 2022' />
-                        <EventPara text='La Quinta, CA' />
+                        <EventPara text={event?.venue?.country} />
+                        <EventPara text={event?.venue?.location} />
                     </div>
                 </div>
             </div>
-            <div className='eventcard__btn'>
-                <Button className='event' text='Get Ticket' />
-            </div>
+            {Object.keys(ticket).length !== 0 && <>
+                <div className='eventcard__btn'>
+                    <Button onClick={() => getTicketHandler(ticket)} className='event' text='Get Ticket' />
+                </div>
+            </>}
         </div>
     )
 }
