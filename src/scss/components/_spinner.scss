@@ -1,0 +1,19 @@
+.spinner__container {
+    @include center;
+    flex-direction: column;
+    height: 80vh;
+}
+
+.spinner__item {
+    display: block;
+    border: $spinner-border-width solid $white-color;
+    border-radius: 50%;
+    border-top: $spinner-border-width solid $primary-color;
+    width: $spinner-width;
+    height: $spinner-height;
+    animation: spin 0.8s linear infinite;
+}
+
+.spinner__paragraph {
+    margin-top: 2%;
+} 

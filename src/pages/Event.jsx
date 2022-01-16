@@ -6,6 +6,7 @@ import NoArtistImage from '../assets/images/music2.png'
 import EventArtist from '../components/Event/EventArtist'
 import EventList from '../components/Event/EventList'
 import { AUTH, BASE_URL } from '../utils/api/Api'
+import Spinner from '../components/Spinner/Spinner'
 
 const Event = () => {
 
@@ -31,7 +32,7 @@ const Event = () => {
 
     useEffect(() => {
         if (artist !== undefined) {
-            getEventData('Maroon5')
+            getEventData(artist)
         }
     }, [])
 
@@ -42,7 +43,7 @@ const Event = () => {
                 image={NoArtistImage}
                 header='Select an artist to see events'
                 para='Attend all the amazing events'
-            /> : loading ? <p>Loading</p> : <>
+            /> : loading ? <Spinner /> : <>
                 <div className='event__container'>
                     <EventArtist artist={artistInfo} />
                     <hr className='event_hrline' />
