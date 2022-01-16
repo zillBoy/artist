@@ -3,7 +3,7 @@ import { visitWebsiteHandler } from '../../utils/Utils'
 import SocialMedia from './SocialMedia'
 
 
-const SocialMediaList = ({ links }) => {
+const SocialMediaList = ({ links = [] }) => {
     return (
         <>
             {links.map((link, index) => <SocialMedia 

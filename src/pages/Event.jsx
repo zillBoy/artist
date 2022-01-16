@@ -14,6 +14,7 @@ const Event = () => {
     const [artistInfo, setArtistInfo] = useState({})
     const [events, setEvents] = useState([])
     const [loading, setLoading] = useState(true)
+    const [message, setMessage] = useState('')
 
     const getEventData = (artist) => {
         fetch(`${BASE_URL}/artists/${artist}/events/?${AUTH}`)
@@ -21,8 +22,11 @@ const Event = () => {
         .then(result => {
             if (result.length !== 0) {
                 setEvents(result)
-                console.log('result[0]?.artist: ', result[0]?.artist)
                 setArtistInfo(result[0]?.artist)
+            } else {
+                let artist = {name: "Ariana Grande", image_url: "https://photos.bandsintown.com/large/11015251.jpeg"}
+                setArtistInfo(artist)
+                setMessage(`No events`)
             }
             
         })
@@ -47,7 +51,7 @@ const Event = () => {
                 <div className='event__container'>
                     <EventArtist artist={artistInfo} />
                     <hr className='event_hrline' />
-                    <EventList events={events} />
+                    {message.length !== 0 ? <p>No events</p> : <EventList events={events} />}
                 </div>
             </>}
             
