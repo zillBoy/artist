@@ -1,34 +1,29 @@
 import React, { useState, useEffect } from 'react'
-import { BASE_URL, AUTH } from '../../utils/api/Api'
 
 // Icons
 import { Search, X as Cancel } from 'react-feather'
 
-const Input = ({ setArtist }) => {
+const Input = ({ onChangeHandler, onEnterPress = () => {} }) => {
     
     const [search, setSearch] = useState('')
     const [showCancel, setShowCancel] = useState(false)
 
     const changeHandler = event => {
         setSearch(event.target.value)
-        setArtist({})
+        onChangeHandler()
     }
 
-    const clearInputHandler = () => setSearch('')
+    const clearInputHandler = () => {
+        setSearch('')
+        onChangeHandler()
+    }
 
     const keyPressHandler = event => {
         if (event.key === 'Enter') {
             if (search.length !== 0) {
-                getArtistData()
+                onEnterPress(search)
             }
         }
-    }
-
-    const getArtistData = () => {
-        fetch(`${BASE_URL}/artists/${search}/?${AUTH}`)
-        .then(response => response.json())
-        .then(result => setArtist(result))
-        .catch(err => console.log('get artist error: ', err.message))
     }
 
     useEffect(() => {
