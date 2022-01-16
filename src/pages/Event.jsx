@@ -4,6 +4,7 @@ import NoArtist from '../components/Artist/NoArtist'
 import Navbar from '../components/Navbar/Navbar'
 import NoArtistImage from '../assets/images/music2.png'
 import EventArtist from '../components/Event/EventArtist'
+import EventList from '../components/Event/EventList'
 
 const Event = () => {
 
@@ -19,6 +20,7 @@ const Event = () => {
             /> : <div className='event__container'>
                 <EventArtist />
                 <hr className='event_hrline' />
+                <EventList />
             </div>}
             
         </>

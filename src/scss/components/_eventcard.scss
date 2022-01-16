@@ -1,0 +1,32 @@
+.eventcard__container {
+    width: $event-card-width;
+    height: $event-card-height;
+    box-shadow: $primray-box-shadow;
+
+    padding: 2rem 2rem;
+    border-radius: 4px;
+    margin: 1rem 0;
+}
+
+.eventcard-header {
+    margin-bottom: 2rem;
+}
+
+.eventcard_hrline {
+    height: 18rem;
+    margin-top: -5rem !important;
+    border-color: $dark-gray-color !important;
+}
+
+.eventcard__content {
+    display: flex;
+}
+
+.eventcard__subcontent {
+    display: flex;
+    margin-left: 5rem;
+
+    & > div {
+        margin-left: 1rem;
+    }
+}

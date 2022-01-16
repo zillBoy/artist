@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Badge = () => {
+const Badge = ({ para }) => {
     return (
         <div className='badge__container'>
-            <p className='paragraph-secondary'>ARTIST</p>
+            <p className='paragraph-secondary'>{para}</p>
         </div>
     )
 }

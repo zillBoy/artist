@@ -1,5 +1,11 @@
 .eventartist__container {
     display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.eventartist__profilecontainer {
+    display: flex;
     align-items: center;
     flex-wrap: wrap;
 }
@@ -31,5 +37,16 @@
 
     &--iconreset {
         margin-right: -0.6%;
+    }
+}
+
+.eventartist__inputcontainer {
+    align-self: flex-end;
+    margin-right: 2%;
+
+    @include respond(phone) {
+        margin-left: -2%;
+        margin-bottom: 2%;
+        margin-top: -3%;
     }
 }

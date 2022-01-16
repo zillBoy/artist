@@ -15,7 +15,7 @@ const SearchedArtistCard = ({ artist }) => {
             <img className='searchedartistcard-image' src={image} alt='artist' />
             <section className='searchedartistcard-content'>
                 <h3 className='heading-tertiary'>{artist.name}</h3>
-                <Badge />
+                <Badge para='ARTIST' />
             </section>
         </div>
     )
