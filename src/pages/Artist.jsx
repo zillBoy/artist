@@ -9,16 +9,19 @@ import SearchedArtist from '../components/Artist/SearchedArtist'
 import RecentSearchedArtist from '../components/Artist/RecentSearchedArtist'
 import Spinner from '../components/Spinner/Spinner'
 import NoArtistImage from '../assets/images/music1.png'
+import ArtistNotFound from '../components/Artist/ArtistNotFound'
 
 const Artist = () => {
 
     const { name } = useParams()
     const [artist, setArtist] = useState({})
     const [loading, setLoading] = useState(false)
+    const [message, setMessage] = useState('')
 
     const resetArtistData = () => {
         setArtist({})
         setLoading(false)
+        setMessage('')
     }
 
     const getArtistData = (name) => {
@@ -26,8 +29,13 @@ const Artist = () => {
 
         fetch(`${BASE_URL}/artists/${name}/?${AUTH}`)
         .then(response => response.json())
-        .then(result => setArtist(result))
-        .catch(err => console.log('get artist error: ', err.message))
+        .then(result => {
+            if (result.length === 0) setMessage(`Artist with name "${name}" not found!`)
+            else setArtist(result)
+        })
+        .catch(err => {
+            console.log('get artist error: ', err.message)
+        })
         .finally(() => setLoading(false))
     }
 
@@ -47,6 +55,7 @@ const Artist = () => {
             {loading ? <Spinner /> 
             : Object.keys(artist).length !== 0 
             ? <SearchedArtist artist={artist} />
+            : message.length !== 0 ? <ArtistNotFound para={message} />
             : <NoArtist
                 image={NoArtistImage}
                 header='Search your favorite artist'
