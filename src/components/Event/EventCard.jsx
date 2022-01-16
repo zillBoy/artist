@@ -1,6 +1,5 @@
 import React from 'react'
 import { MapPin, Calendar } from 'react-feather'
-import Badge from '../Badge/Badge'
 import Button from '../Button/Button'
 import EventPara from './EventPara'
 
@@ -15,13 +14,15 @@ const EventCard = () => {
                 </div>
                 <div className='eventcard__subcontent'>
                     <hr className='event_hrline eventcard_hrline' />
-                    <div className=''>
+                    <div className='eventcard__paradiv'>
                         <EventPara text='AMEX PGA 2022' />
                         <EventPara text='La Quinta, CA' />
                     </div>
                 </div>
             </div>
-            <Button className='event' text='Get Ticket' />
+            <div className='eventcard__btn'>
+                <Button className='event' text='Get Ticket' />
+            </div>
         </div>
     )
 }

@@ -6,6 +6,10 @@
     padding: 2rem 2rem;
     border-radius: 4px;
     margin: 1rem 0;
+
+    @include respond(phone) {
+        height: $event-card-phone-height;
+    }
 }
 
 .eventcard-header {
@@ -16,10 +20,21 @@
     height: 18rem;
     margin-top: -5rem !important;
     border-color: $dark-gray-color !important;
+
+    @include respond(phone) {
+        height: 0rem;
+        width: 95%;
+        margin: 0 !important;
+        margin-top: 1rem !important;
+    }
 }
 
 .eventcard__content {
     display: flex;
+
+    @include respond(phone) {
+        flex-direction: column;
+    }
 }
 
 .eventcard__subcontent {
@@ -28,5 +43,22 @@
 
     & > div {
         margin-left: 1rem;
+    }
+
+    @include respond(phone) {
+        display: block;
+        margin-left: 0rem;
+    }
+}
+
+.eventcard__paradiv {
+    @include respond(phone) {
+        margin-left: -0.5rem !important;
+    }
+}
+
+.eventcard__btn {
+    @include respond(phone) {
+        margin-top: 6rem;
     }
 }
