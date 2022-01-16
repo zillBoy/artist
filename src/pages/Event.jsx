@@ -18,6 +18,7 @@ const Event = () => {
                 para='Attend all the amazing events'
             /> : <div className='event__container'>
                 <EventArtist />
+                <hr className='event_hrline' />
             </div>}
             
         </>

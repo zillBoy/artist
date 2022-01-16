@@ -1,5 +1,13 @@
 .event__container {
-    background-color: rgb(218, 121, 121);
     width: 90%;
     margin: 2rem auto;
+}
+
+.event_hrline {
+    border: 0.1px solid #000;
+    margin: 1rem 0;
+
+    @include respond(phone) {
+        margin: 0rem;
+    }
 }
