@@ -1,9 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { Sun, Moon } from 'react-feather'
 
 import { ReactComponent as Logo } from '../../assets/images/logo.svg'
-import { ReactComponent as Sun } from '../../assets/images/sun.svg'
-import { ReactComponent as Moon } from '../../assets/images/moon.svg'
 
 const Navbar = () => {
     
@@ -19,7 +18,7 @@ const Navbar = () => {
                     <Link to='/artist' className='navbar__item navbar-link'>Artist</Link>
                     <Link to='/event' className='navbar__item navbar-link'>Events</Link>
                     <li className='navbar__item'>
-                        <Moon />
+                        <Moon fill='#000' />
                     </li>
                 </ul>
             </li>

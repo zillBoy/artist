@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { BASE_URL, AUTH } from '../../utils/api/Api'
 
 // Icons
-import { ReactComponent as Search } from '../../assets/images/search.svg'
-import { ReactComponent as Cancel } from '../../assets/images/cancel.svg'
+import { Search, X as Cancel } from 'react-feather'
 
 const Input = ({ setArtist }) => {
     
