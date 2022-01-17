@@ -40,12 +40,16 @@
     }
 }
 
+.artistcard-close {
+    text-align: right;
+    margin: 1rem;
+}
+
 .artistcard-image {
     width: $artist-recentcard-image;
     height: $artist-recentcard-image;
     border-radius: calc($artist-recentcard-image / 2);
     object-fit: cover;
-    margin-top: 2rem;
 }
 
 .artistcard-content {

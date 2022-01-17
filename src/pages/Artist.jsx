@@ -50,7 +50,7 @@ const Artist = () => {
             : Object.keys(artist).length !== 0 
             ? <SearchedArtist artist={artist} />
             : message.length !== 0 ? <NotFound image={ArtistNotFoundImage} para={message} />
-            : artists.length !== 0 ? <RecentSearchedArtist artists={artists} />
+            : artists.length !== 0 ? <RecentSearchedArtist artists={artists} setArtists={setArtists} />
             : <NoArtist
                 image={NoArtistImage}
                 header='Search your favorite artist'
