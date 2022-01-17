@@ -39,7 +39,7 @@ const EventArtist = ({ artist, events, setFilteredEvents }) => {
                 </div>
             </div>
             <div className='eventartist__inputcontainer'>
-                <Input onChangeHandler={filterEventHandler} />
+                <Input placeholder='Filter event by name, city, etc...' onChangeHandler={filterEventHandler} />
             </div>
         </div>
     )

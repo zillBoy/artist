@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 // Icons
 import { Search, X as Cancel } from 'react-feather'
 
-const Input = ({ onChangeHandler, onEnterPress = () => {}, page='' }) => {
+const Input = ({ onChangeHandler, onEnterPress = () => {}, page='', placeholder='' }) => {
     
     const [search, setSearch] = useState('')
     const [showCancel, setShowCancel] = useState(false)
@@ -39,7 +39,7 @@ const Input = ({ onChangeHandler, onEnterPress = () => {}, page='' }) => {
             <div className='input__icon'>
                 <Search className='input__icon--search' />
             </div>
-            <input className='input__container-input' type='text' value={search} onChange={changeHandler} onKeyPress={keyPressHandler} />
+            <input placeholder={placeholder} className='input__container-input' type='text' value={search} onChange={changeHandler} onKeyPress={keyPressHandler} />
             {showCancel && <div className='input__icon'>
                 <Cancel onClick={clearInputHandler} className='input__icon--cancel' />
             </div>}

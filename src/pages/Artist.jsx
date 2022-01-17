@@ -39,6 +39,7 @@ const Artist = () => {
                 onEnterPress={(name) => getArtistData(name, setArtist, setMessage, setLoading)}
                 onChangeHandler={resetArtistData}
                 page='artist'
+                placeholder='Search artist'
             />
             {loading ? <Spinner /> 
             : Object.keys(artist).length !== 0 

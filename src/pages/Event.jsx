@@ -30,6 +30,7 @@ const Event = () => {
 
                 if (!result.hasOwnProperty('errorMessage')) {
                     setEvents(result)
+                    setFilteredEvents(result)
                     setArtistInfo(result[0]?.artist)
                 } else {
                     setMessage(`Artist with name "${artist}" not found!`)
