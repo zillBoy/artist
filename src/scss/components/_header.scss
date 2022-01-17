@@ -1,0 +1,21 @@
+// Header
+
+.header__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+
+    @include respond(tab-land) {
+        margin-top: 10rem;
+    }
+
+    @include respond(tab-port) {
+        flex-direction: column-reverse;
+    }
+
+    @include respond(phone) {
+        flex-direction: column-reverse;
+    }
+}

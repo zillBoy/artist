@@ -1,0 +1,24 @@
+.header__imagediv {
+
+    text-align: center;
+
+    &-image {
+        width: $header-image-width;
+        height: $header-image-height;
+
+        @include respond(tab-land) {
+            width: calc($header-image-width - 30%);
+            height: calc($header-image-height - 30%);
+        }
+
+        @include respond(tab-port) {
+            width: calc($header-image-width - 10%);
+            height: calc($header-image-height - 10%);
+        }
+
+        @include respond(phone) {
+            width: calc($header-image-width - 80%);
+            height: calc($header-image-height - 80%);
+        }
+    }
+}

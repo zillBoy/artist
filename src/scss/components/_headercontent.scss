@@ -1,0 +1,77 @@
+.header__content {
+
+    &-maindiv {
+        margin-top: calc($header-space - 10rem);
+    }
+
+    &-main {
+
+        &--heading {
+
+            @include respond(tab-land) {
+                font-size: 5.0rem;
+            }
+
+            @include respond(tab-port) {
+                font-size: 6.4rem;
+            }
+
+            @include respond(phone) {
+                font-size: 3.4rem;
+            }
+        }
+
+        &--subheading {
+            margin-top: -1.5rem;
+
+            @include respond(tab-land) {
+                font-size: 5.0rem;
+            }
+
+            @include respond(tab-port) {
+                font-size: 6.4rem;
+            }
+
+            @include respond(phone) {
+                margin-top: -1.0rem;
+                font-size: 3.4rem;
+            }
+        }
+    }
+
+    &-para {
+        width: $header-para-width;
+
+        @include respond(tab-land) {
+            // width: calc($header-para-width - 1%);
+            // font-size: 1.8rem;
+            // width: calc($header-para-width - 5%);
+        }
+
+        @include respond(tab-port) {
+            font-size: 2.0rem;
+            width: calc($header-para-width + 25%);
+        }
+
+        @include respond(phone) {
+            margin-top: 1rem;
+            font-size: 1.6rem;
+            width: calc($header-para-width - 50%);
+        }
+
+    }
+
+    &-button {
+        margin-top: $header-space;
+
+        @include respond(tab-port) {
+            margin-top: calc($header-space - 10%);
+            text-align: center;    
+        }
+
+        @include respond(phone) {
+            margin-top: calc($header-space - 20%);
+            text-align: center;    
+        }
+    }
+}
