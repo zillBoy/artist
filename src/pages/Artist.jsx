@@ -38,6 +38,7 @@ const Artist = () => {
             <Input
                 onEnterPress={(name) => getArtistData(name, setArtist, setMessage, setLoading)}
                 onChangeHandler={resetArtistData}
+                page='artist'
             />
             {loading ? <Spinner /> 
             : Object.keys(artist).length !== 0 

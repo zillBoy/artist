@@ -1,16 +1,26 @@
 import React, { useState, useEffect } from 'react'
 
 import AritstPlaceholderImage from '../../assets/images/artistplaceholder.jpg'
+import { filterHandler } from '../../utils/Utils'
 import Input from '../Input/Input'
 import SocialMediaList from '../SocialMedia/SocialMediaList'
 
-const EventArtist = ({ artist }) => {
+const EventArtist = ({ artist, events, setFilteredEvents }) => {
 
     const [image, setImage] = useState(AritstPlaceholderImage)
 
     useEffect(() => {
         if (artist?.image_url.length !== 0) setImage(artist?.image_url)
     }, [])
+
+    const filterEventHandler = (value) => {
+
+        // Filter based on properties - 'city', 'country', 'location', 'name' & 'region'.
+
+        const filteredData = filterHandler(value, ['city', 'country', 'location', 'name', 'region'], events)
+        if (value.length !== 0) setFilteredEvents(filteredData)
+        else setFilteredEvents(events)
+    }
 
     return (
         <div className='eventartist__container'>
@@ -29,7 +39,7 @@ const EventArtist = ({ artist }) => {
                 </div>
             </div>
             <div className='eventartist__inputcontainer'>
-                <Input />
+                <Input onChangeHandler={filterEventHandler} />
             </div>
         </div>
     )

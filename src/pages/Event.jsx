@@ -18,6 +18,7 @@ const Event = () => {
     const { artist } = useParams()
     const [artistInfo, setArtistInfo] = useState({})
     const [events, setEvents] = useState([])
+    const [filteredEvents, setFilteredEvents] = useState([])
     const [loading, setLoading] = useState(true)
     const [message, setMessage] = useState('')
 
@@ -54,16 +55,16 @@ const Event = () => {
     return (
         <>
             <Navbar />
-            {artist === undefined ? <NoArtist 
+            {artist === undefined ? <NoArtist
                 image={NoArtistImage}
                 header='Select an artist to see events'
                 para='Attend all the amazing events'
             /> : loading ? <Spinner /> : <>
                 <div className='event__container'>
                     {Object.keys(artistInfo).length !== 0 ? <>
-                        <EventArtist artist={artistInfo} />
+                        <EventArtist artist={artistInfo} events={events} setFilteredEvents={setFilteredEvents} />
                         <hr className='event_hrline' />
-                        {message.length !== 0 ? <NoEvent para={message} /> : <EventList events={events} />}
+                        {message.length !== 0 ? <NoEvent para={message} /> : <EventList events={filteredEvents} />}
                     </> : <NotFound image={ArtistNotFoundImage} para={message} />}
                 </div>
             </>}

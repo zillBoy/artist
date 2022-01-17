@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 // Icons
 import { Search, X as Cancel } from 'react-feather'
 
-const Input = ({ onChangeHandler, onEnterPress = () => {} }) => {
+const Input = ({ onChangeHandler, onEnterPress = () => {}, page='' }) => {
     
     const [search, setSearch] = useState('')
     const [showCancel, setShowCancel] = useState(false)
@@ -11,9 +11,9 @@ const Input = ({ onChangeHandler, onEnterPress = () => {} }) => {
     const changeHandler = event => {
         let name = event.target.value
         setSearch(name)
-        onChangeHandler()
+        onChangeHandler(name)
 
-        window.history.replaceState(null, "New Page Title", `/artist/${name}`)
+        if (page === 'artist') window.history.replaceState(null, "New Page Title", `/artist/${name}`)
     }
 
     const clearInputHandler = () => {

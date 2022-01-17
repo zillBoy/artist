@@ -5,7 +5,6 @@ import { ReactComponent as Spotify } from '../../assets/images/spotify.svg'
 const SocialMedia = ({ link, onClick }) => {
     return (
         <>
-        {console.log('link: ', link)}
             { 
                 link.type === 'twitter' ? <Twitter onClick={onClick} className=' eventartist__socialmedia--icon' /> : 
                 link.type === 'facebook' ? <Facebook onClick={onClick} className=' eventartist__socialmedia--icon' /> :
