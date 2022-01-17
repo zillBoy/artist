@@ -9,6 +9,21 @@ const SearchedArtistCard = ({ artist }) => {
     const [image, setImage] = useState(AritstPlaceholderImage)
 
     const viewArtistEvents = () => {
+
+        let artists = localStorage.getItem('artists')
+        if (artists === null) {
+            localStorage.setItem('artists', JSON.stringify([{...artist}]))
+        } else {
+
+            let parsedArtists = JSON.parse(artists)
+            let foundArtist = parsedArtists.find(_artist => _artist.id === artist.id)
+            
+            if (foundArtist === undefined) {
+                parsedArtists.push(artist)
+                localStorage.setItem('artists', JSON.stringify(parsedArtists))
+            }
+        }
+
         navigate(`/event/${artist.name}`)
     }
 

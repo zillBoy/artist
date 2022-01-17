@@ -17,6 +17,7 @@ const Artist = () => {
 
     const { name } = useParams()
     const [artist, setArtist] = useState({})
+    const [artists, setArtists] = useState([])
     const [loading, setLoading] = useState(false)
     const [message, setMessage] = useState('')
 
@@ -29,6 +30,10 @@ const Artist = () => {
     useEffect(() => {
         if (name !== undefined) {
             getArtistData(name, setArtist, setMessage, setLoading)
+        }
+        const artists = localStorage.getItem('artists')
+        if (artists !== null) {
+            setArtists(JSON.parse(artists))
         }
     }, [])
 
@@ -45,11 +50,12 @@ const Artist = () => {
             : Object.keys(artist).length !== 0 
             ? <SearchedArtist artist={artist} />
             : message.length !== 0 ? <NotFound image={ArtistNotFoundImage} para={message} />
+            : artists.length !== 0 ? <RecentSearchedArtist artists={artists} />
             : <NoArtist
                 image={NoArtistImage}
                 header='Search your favorite artist'
                 para='Never miss another show'
-            /> // <RecentSearchedArtist />
+            /> 
             }
         </>
     )

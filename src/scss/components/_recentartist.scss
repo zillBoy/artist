@@ -8,8 +8,9 @@
 
 .artistlist__container {
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
     flex-wrap: wrap;
+    margin-left: -2rem;
 
     @include respond(tab-land) {
         justify-content: space-evenly;
@@ -31,7 +32,8 @@
     border-radius: 0.4rem;
     cursor: pointer;
     text-align: center;
-    margin: 1rem 0rem;
+    margin: 1rem 2rem;
+    flex-wrap: wrap;
 
     @include respond(phone) {
         margin: 1rem;
