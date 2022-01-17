@@ -1,13 +1,12 @@
 import React from 'react'
-import ArtistNotFoundImage from '../../assets/images/artistnotfound.png'
 
-const ArtistNotFound = ({ para='' }) => {
+const NotFound = ({ image, para='' }) => {
     return (
         <div className='artistnotfound__container'>
             <img 
                 title='Illustration by Rosina Gavrilash from Ouch!'
                 className='artistnotfound__image' 
-                src={ArtistNotFoundImage} 
+                src={image} 
                 alt='artist not found' 
             />
             <p className='paragraph-tertiary artistnotfound__paragraph'>{para}</p>
@@ -15,4 +14,4 @@ const ArtistNotFound = ({ para='' }) => {
     )
 }
 
-export default ArtistNotFound
+export default NotFound

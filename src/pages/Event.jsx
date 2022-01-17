@@ -7,6 +7,11 @@ import EventArtist from '../components/Event/EventArtist'
 import EventList from '../components/Event/EventList'
 import { AUTH, BASE_URL } from '../utils/api/Api'
 import Spinner from '../components/Spinner/Spinner'
+import NoEvent from '../components/Event/NoEvent'
+import { getArtistData } from '../utils/api/APIUtils'
+import NotFound from '../components/Artist/NotFound'
+
+import ArtistNotFoundImage from '../assets/images/artistnotfound.png'
 
 const Event = () => {
 
@@ -21,17 +26,23 @@ const Event = () => {
         .then(response => response.json())
         .then(result => {
             if (result.length !== 0) {
-                setEvents(result)
-                setArtistInfo(result[0]?.artist)
+
+                if (!result.hasOwnProperty('errorMessage')) {
+                    setEvents(result)
+                    setArtistInfo(result[0]?.artist)
+                } else {
+                    setMessage(`Artist with name "${artist}" not found!`)
+                }
+                
+                setLoading(false)
+
             } else {
-                let artist = {name: "Ariana Grande", image_url: "https://photos.bandsintown.com/large/11015251.jpeg"}
-                setArtistInfo(artist)
+                getArtistData(artist, setArtistInfo, setMessage, setLoading)
                 setMessage(`No events`)
             }
-            
         })
         .catch(err => console.log('event error: ', err.message))
-        .finally(() => setLoading(false))
+        // .finally(() => setLoading(false))
     }
 
     useEffect(() => {
@@ -49,9 +60,11 @@ const Event = () => {
                 para='Attend all the amazing events'
             /> : loading ? <Spinner /> : <>
                 <div className='event__container'>
-                    <EventArtist artist={artistInfo} />
-                    <hr className='event_hrline' />
-                    {message.length !== 0 ? <p>No events</p> : <EventList events={events} />}
+                    {Object.keys(artistInfo).length !== 0 ? <>
+                        <EventArtist artist={artistInfo} />
+                        <hr className='event_hrline' />
+                        {message.length !== 0 ? <NoEvent para={message} /> : <EventList events={events} />}
+                    </> : <NotFound image={ArtistNotFoundImage} para={message} />}
                 </div>
             </>}
             

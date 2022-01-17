@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { BASE_URL, AUTH } from '../utils/api/Api'
+import { getArtistData } from '../utils/api/APIUtils'
 
 import Navbar from '../components/Navbar/Navbar'
 import Input from '../components/Input/Input'
@@ -9,7 +9,9 @@ import SearchedArtist from '../components/Artist/SearchedArtist'
 import RecentSearchedArtist from '../components/Artist/RecentSearchedArtist'
 import Spinner from '../components/Spinner/Spinner'
 import NoArtistImage from '../assets/images/music1.png'
-import ArtistNotFound from '../components/Artist/ArtistNotFound'
+import NotFound from '../components/Artist/NotFound'
+
+import ArtistNotFoundImage from '../assets/images/artistnotfound.png'
 
 const Artist = () => {
 
@@ -24,24 +26,9 @@ const Artist = () => {
         setMessage('')
     }
 
-    const getArtistData = (name) => {
-        setLoading(true)
-
-        fetch(`${BASE_URL}/artists/${name}/?${AUTH}`)
-        .then(response => response.json())
-        .then(result => {
-            if (result.length === 0) setMessage(`Artist with name "${name}" not found!`)
-            else setArtist(result)
-        })
-        .catch(err => {
-            console.log('get artist error: ', err.message)
-        })
-        .finally(() => setLoading(false))
-    }
-
     useEffect(() => {
         if (name !== undefined) {
-            getArtistData(name)
+            getArtistData(name, setArtist, setMessage, setLoading)
         }
     }, [])
 
@@ -49,13 +36,13 @@ const Artist = () => {
         <>
             <Navbar />
             <Input
-                onEnterPress={getArtistData} 
+                onEnterPress={(name) => getArtistData(name, setArtist, setMessage, setLoading)}
                 onChangeHandler={resetArtistData}
             />
             {loading ? <Spinner /> 
             : Object.keys(artist).length !== 0 
             ? <SearchedArtist artist={artist} />
-            : message.length !== 0 ? <ArtistNotFound para={message} />
+            : message.length !== 0 ? <NotFound image={ArtistNotFoundImage} para={message} />
             : <NoArtist
                 image={NoArtistImage}
                 header='Search your favorite artist'
