@@ -1,0 +1,48 @@
+//shortcuts
+$bg: 'bg';
+$primary-color: 'primary-color';
+$secondary-color: 'secondary-color';
+$gray-color: 'gray-color';
+$dark-gray-color: 'dark-gray-color';
+$black-color: 'black-color';
+$white-color: 'white-color';
+
+//themes
+$themes: (
+        default: (
+                bg: $bg--light,
+                primary-color: $primary-color--light,
+                secondary-color: $secondary-color--light,
+                gray-color: $gray-color--light,
+                dark-gray-color: $dark-gray-color--light,
+                black-color: $black-color--light,
+                white-color: $white-color--light
+        ),
+        dark: (
+                bg: $bg--dark,
+                primary-color: $primary-color--dark,
+                secondary-color: $secondary-color--dark,
+                gray-color: $gray-color--dark,
+                dark-gray-color: $dark-gray-color--dark,
+                black-color: $black-color--dark,
+                white-color: $white-color--dark
+        ),
+);
+
+@mixin themed() {
+  @each $theme, $map in $themes {
+    .theme--#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), '#{$key}');
+        $theme-map: map-merge($theme-map, ($key: $value)) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function t($key) {
+  @return map-get($theme-map, $key);
+}

@@ -1,5 +1,9 @@
 // Abstract
 @import './abstract/variable';
+
+// Theme
+@import './theme/theme';
+
 @import './abstract/mixins';
 @import './abstract/functions';
 
@@ -32,8 +36,7 @@
 // Layout
 
 // Pages
-@import './pages/event'
-
-// Theme
+@import './pages/home';
+@import './pages/event';
 
 // Vendors

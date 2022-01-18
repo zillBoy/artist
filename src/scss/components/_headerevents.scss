@@ -1,5 +1,9 @@
 .headerevents__container {
 
+    @include themed() {
+        color: t($black-color);
+    }
+
     position: relative;
     margin-top: 4rem;
 
@@ -54,5 +58,8 @@
 
 .headerevents-textcontent {
     text-align: right;
-    color: $gray-color;
+    
+    @include themed() {
+        color: t($gray-color);
+    }
 }

@@ -5,8 +5,11 @@
 }
 
 .btn {
-    background-color: $primary-color;
-    color: $white-color;
+    @include themed() {
+        background-color: t($primary-color);
+    }
+
+    color: $app-white-color;
     padding: 0.6rem 2rem;
     border: none;
     border-radius: 10rem;
@@ -22,5 +25,4 @@
         width: 19.3rem;
         height: 5.0rem;
     }
-    
 }

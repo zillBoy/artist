@@ -1,11 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { Sun, Moon } from 'react-feather'
 
 import { ReactComponent as Logo } from '../../assets/images/logo.svg'
+import { ThemeContext } from '../../context/ThemeContext'
 
 const Navbar = () => {
+
+    const { theme, setTheme } = useContext(ThemeContext)
     
+    const toggleThemeHandler = () => {
+        setTheme(theme === 'default' ? 'dark' : 'default')
+    }
+
     return (
         <ul className='navbar__container'>
             <li className='navbar__item'>
@@ -17,8 +24,10 @@ const Navbar = () => {
                 <ul className='navbar__item-page'>
                     <Link to='/artist' className='navbar__item navbar-link'>Artist</Link>
                     <Link to='/event' className='navbar__item navbar-link'>Events</Link>
-                    <li className='navbar__item'>
-                        <Moon fill='#000' />
+                    <li onClick={toggleThemeHandler} className='navbar__item'>
+                        {theme === 'default' 
+                        ? <Moon fill='#000' />
+                        : <Sun fill='#fff' stroke='#fff' />}
                     </li>
                 </ul>
             </li>

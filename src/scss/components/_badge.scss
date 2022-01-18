@@ -1,6 +1,10 @@
 .badge__container {
     margin-top: 0.5rem;
-    background-color: $primary-color;
+
+    @include themed() {
+        background-color: t($primary-color);
+    }
+    
     width: $badge-width;
     height: $badge-height;
     border-radius: calc($badge-width / 2);

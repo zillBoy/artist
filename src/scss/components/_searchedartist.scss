@@ -8,7 +8,11 @@
 // Searched Artist Card
 
 .searchedartistcard__container {
-    background-color: $white-color;
+
+    @include themed() {
+        background-color: t($white-color);
+    }
+    
     box-shadow: $primray-box-shadow;
     width: $artist-searchedcard-width;
     height: $artist-searchedcard-height;

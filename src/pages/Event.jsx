@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import NoArtist from '../components/Artist/NoArtist'
 import Navbar from '../components/Navbar/Navbar'
@@ -12,8 +12,11 @@ import { getArtistData } from '../utils/api/APIUtils'
 import NotFound from '../components/Artist/NotFound'
 
 import ArtistNotFoundImage from '../assets/images/artistnotfound.png'
+import { ThemeContext } from '../context/ThemeContext'
 
 const Event = () => {
+
+    const { theme } = useContext(ThemeContext)
 
     const { artist } = useParams()
     const [artistInfo, setArtistInfo] = useState({})
@@ -54,7 +57,7 @@ const Event = () => {
     }, [])
 
     return (
-        <>
+        <div className={`eventmain__container--${theme} theme--${theme}`}>
             <Navbar />
             {artist === undefined ? <NoArtist
                 image={NoArtistImage}
@@ -69,8 +72,7 @@ const Event = () => {
                     </> : <NotFound image={ArtistNotFoundImage} para={message} />}
                 </div>
             </>}
-            
-        </>
+        </div>
     )
 }
 

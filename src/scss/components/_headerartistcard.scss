@@ -8,7 +8,9 @@
     display: block;
     width: $header-artist-image-width;
     height: $header-artist-image-width;
-    background-color: $black-color;
+
+    background-color: $app-black-color;
+
     border-radius: 4px;
 }
 
@@ -20,7 +22,7 @@
 }
 
 .headereventcard-heading {
-    color: $white-color;
+    color: $app-white-color;
     position: absolute;
     bottom: 0%;
     font-weight: 700;

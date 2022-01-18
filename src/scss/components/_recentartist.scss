@@ -25,7 +25,11 @@
 // Artist Card
 
 .artistcard__container {
-    background-color: $white-color;
+
+    @include themed() {
+        background-color: t($white-color);
+    }
+    
     box-shadow: $primray-box-shadow;
     width: $artist-recentcard-width;
     height: $artist-recentcard-height;

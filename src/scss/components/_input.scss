@@ -11,6 +11,11 @@
         padding: 0.8rem 4rem;
         border-radius: 10rem;
         border: 1.5px solid $black-color;
+
+        @include themed() {
+            border-color: t($black-color);
+        }
+        
         font-size: 1.6rem;
         width: $artist-search-input-width;
         z-index: 1;
