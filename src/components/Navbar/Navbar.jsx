@@ -10,7 +10,8 @@ const Navbar = () => {
     const { theme, setTheme } = useContext(ThemeContext)
     
     const toggleThemeHandler = () => {
-        setTheme(theme === 'default' ? 'dark' : 'default')
+        // The UI Design is not completed, so can't work on this feature.
+        // setTheme(theme === 'default' ? 'dark' : 'default')
     }
 
     return (
