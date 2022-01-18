@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { getArtistData } from '../utils/api/APIUtils'
 
@@ -12,8 +12,11 @@ import NoArtistImage from '../assets/images/music1.png'
 import NotFound from '../components/Artist/NotFound'
 
 import ArtistNotFoundImage from '../assets/images/artistnotfound.png'
+import { ThemeContext } from '../context/ThemeContext'
 
 const Artist = () => {
+
+    const { theme } = useContext(ThemeContext)
 
     const { name } = useParams()
     const [artist, setArtist] = useState({})
@@ -38,7 +41,7 @@ const Artist = () => {
     }, [])
 
     return (
-        <>
+        <div className={`artist__container--${theme} theme--${theme}`}>
             <Navbar />
             <Input
                 onEnterPress={(name) => getArtistData(name, setArtist, setMessage, setLoading)}
@@ -57,7 +60,7 @@ const Artist = () => {
                 para='Never miss another show'
             /> 
             }
-        </>
+        </div>
     )
 }
 
