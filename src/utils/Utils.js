@@ -1,3 +1,7 @@
+import EventArtist1 from '../assets/images/eventartist1.png'
+import EventArtist2 from '../assets/images/eventartist2.png'
+import EventArtist3 from '../assets/images/eventartist3.png'
+
 // Format Number
 export const formatNumber = num => num < 10 ? `0${num}` : num
 
@@ -37,3 +41,11 @@ export const filterHandler = (value, keys, data) => {
         return updatedData
     }
 }
+
+// Artist Events
+
+export const artists = [
+    {name: 'Maroon 5', image: EventArtist1 },
+    {name: 'Astrid S', image: EventArtist2 },
+    {name: 'James Arthur', image: EventArtist3 },
+]

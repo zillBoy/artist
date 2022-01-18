@@ -1,0 +1,29 @@
+.headereventcard__container {
+    display: block;
+    position: relative;
+    margin: 1rem 0;
+}
+
+.headereventcard-imagediv {
+    display: block;
+    width: $header-artist-image-width;
+    height: $header-artist-image-width;
+    background-color: $black-color;
+    border-radius: 4px;
+}
+
+.headereventcard-image {
+    opacity: 0.83;
+    width: $header-artist-image-width;
+    height: $header-artist-image-width;
+    
+}
+
+.headereventcard-heading {
+    color: $white-color;
+    position: absolute;
+    bottom: 0%;
+    font-weight: 700;
+    width: $header-artist-image-width;
+    left: 3%;
+}
