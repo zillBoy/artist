@@ -63,3 +63,40 @@ body {
     text-transform: uppercase;
     font-weight: bold;
 }
+
+.heading-event {
+    font-size: 25.0rem;
+    text-transform: uppercase;
+
+    &--subheading {
+        margin-top: -8rem;
+
+        @include respond(tab-land) {
+            font-size: 16.0rem;
+            margin-top: -6rem;
+        }
+
+        @include respond(tab-port) {
+            font-size: 12.0rem;
+            margin-top: -8rem;
+        }
+
+        @include respond(phone) {
+            font-size: 8.0rem;
+            margin-top: -2rem;
+        }
+    }
+
+    @include respond(tab-land) {
+        font-size: 16.0rem;
+    }
+
+    @include respond(tab-port) {
+        font-size: 12.0rem;
+        margin-top: -2rem;
+    }
+
+    @include respond(phone) {
+        font-size: 8.0rem;
+    }
+}

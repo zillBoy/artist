@@ -16,6 +16,7 @@
     }
 
     @include respond(phone) {
+        margin-top: 2rem;
         flex-direction: column-reverse;
     }
 }
