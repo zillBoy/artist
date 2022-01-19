@@ -4,7 +4,7 @@ This project allows users to search for their favorite artist, view their detail
 I've made this project in React.Js and its bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 This website is deployed on Netlify you can view the website in here
-https://artistsevents.netlify.app/
+https://artistevents.netlify.app/
 
 ## _Run the project_
 
