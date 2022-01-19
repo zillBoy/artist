@@ -58,7 +58,7 @@ const Event = () => {
 
     return (
         <div className={`eventmain__container--${theme} theme--${theme}`}>
-            <Navbar />
+            <Navbar page='event' />
             {artist === undefined ? <NoArtist
                 image={NoArtistImage}
                 header='Select an artist to see events'

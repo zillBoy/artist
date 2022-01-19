@@ -59,7 +59,7 @@ const Artist = () => {
 
     return (
         <div className={`artist__container--${theme} theme--${theme}`}>
-            <Navbar />
+            <Navbar page='artist' />
             <Input
                 onEnterPress={(name) => getArtistData(name, setArtist, setMessage, setLoading)}
                 onChangeHandler={onArtistNameChangeHandler}

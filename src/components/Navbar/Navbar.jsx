@@ -5,7 +5,7 @@ import { Sun, Moon } from 'react-feather'
 import { ReactComponent as Logo } from '../../assets/images/logo.svg'
 import { ThemeContext } from '../../context/ThemeContext'
 
-const Navbar = () => {
+const Navbar = ({ page }) => {
 
     const { theme, setTheme } = useContext(ThemeContext)
     
@@ -23,8 +23,8 @@ const Navbar = () => {
             </li>
             <li className='navbar__item'>
                 <ul className='navbar__item-page'>
-                    <Link to='/artist' className='navbar__item navbar-link'>Artist</Link>
-                    <Link to='/event' className='navbar__item navbar-link'>Events</Link>
+                    <Link to='/artist' className={`navbar__item navbar-link navbar-link--${page === 'artist' ? 'artist' : ''}`}>Artist</Link>
+                    <Link to='/event' className={`navbar__item navbar-link navbar-link--${page === 'event' ? 'event' : ''}`}>Events</Link>
                     {/* <li onClick={toggleThemeHandler} className='navbar__item'>
                         {theme === 'default' 
                         ? <Moon fill='#000' />
