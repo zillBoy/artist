@@ -25,11 +25,11 @@ const Navbar = () => {
                 <ul className='navbar__item-page'>
                     <Link to='/artist' className='navbar__item navbar-link'>Artist</Link>
                     <Link to='/event' className='navbar__item navbar-link'>Events</Link>
-                    <li onClick={toggleThemeHandler} className='navbar__item'>
+                    {/* <li onClick={toggleThemeHandler} className='navbar__item'>
                         {theme === 'default' 
                         ? <Moon fill='#000' />
                         : <Sun fill='#fff' stroke='#fff' />}
-                    </li>
+                    </li> */}
                 </ul>
             </li>
         </ul>
