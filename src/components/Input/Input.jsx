@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 // Icons
 import { Search, X as Cancel } from 'react-feather'
 
-const Input = ({ onChangeHandler, onEnterPress = () => {}, page='', placeholder='' }) => {
+const Input = ({ onChangeHandler, onClearHandler = () => {}, onEnterPress = () => {}, page='', placeholder='' }) => {
     
     const [search, setSearch] = useState('')
     const [showCancel, setShowCancel] = useState(false)
@@ -18,7 +18,8 @@ const Input = ({ onChangeHandler, onEnterPress = () => {}, page='', placeholder=
 
     const clearInputHandler = () => {
         setSearch('')
-        onChangeHandler()
+        // onChangeHandler()
+        onClearHandler()
     }
 
     const keyPressHandler = event => {

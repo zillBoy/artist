@@ -23,8 +23,13 @@ const Artist = () => {
     const [artists, setArtists] = useState([])
     const [loading, setLoading] = useState(false)
     const [message, setMessage] = useState('')
+    const [artistName, setArtistName] = useState('')
 
-    const resetArtistData = () => {
+    const onArtistNameChangeHandler = (name) => {
+        setArtistName(name)
+    }
+
+    const resetArtistData = (name) => {
         setArtist({})
         setLoading(false)
         setMessage('')
@@ -40,12 +45,25 @@ const Artist = () => {
         }
     }, [])
 
+    useEffect(() => {
+        if (artistName.length !== 0) {
+            const debounce = setTimeout(() => {
+                getArtistData(artistName, setArtist, setMessage, setLoading)
+            }, 500)
+    
+            return () => clearInterval(debounce)
+        } else {
+            resetArtistData()
+        }
+    }, [artistName])
+
     return (
         <div className={`artist__container--${theme} theme--${theme}`}>
             <Navbar />
             <Input
                 onEnterPress={(name) => getArtistData(name, setArtist, setMessage, setLoading)}
-                onChangeHandler={resetArtistData}
+                onChangeHandler={onArtistNameChangeHandler}
+                onClearHandler={resetArtistData}
                 page='artist'
                 placeholder='Search artist'
             />

@@ -22,6 +22,10 @@ const EventArtist = ({ artist, events, setFilteredEvents }) => {
         else setFilteredEvents(events)
     }
 
+    const resetEventData = () => {
+        setFilteredEvents(events)
+    }
+
     return (
         <div className='eventartist__container'>
             <div className='eventartist__profilecontainer'>
@@ -39,7 +43,11 @@ const EventArtist = ({ artist, events, setFilteredEvents }) => {
                 </div>
             </div>
             <div className='eventartist__inputcontainer'>
-                <Input placeholder='Filter event by name, city, etc...' onChangeHandler={filterEventHandler} />
+                <Input 
+                    placeholder='Filter event by name, city, etc...' 
+                    onChangeHandler={filterEventHandler} 
+                    onClearHandler={resetEventData}
+                />
             </div>
         </div>
     )
