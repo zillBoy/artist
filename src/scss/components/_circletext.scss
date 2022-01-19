@@ -1,0 +1,19 @@
+.circletext__container {
+
+    position: relative;
+
+    &-icon {
+        position: absolute;
+        top: $circle-text-top;
+        left: $circle-text-left;
+        // animation: spin 12s linear infinite;
+
+        @include respond(tab-port) {
+            top: -$circle-text-top;
+        }
+
+        @include respond(phone) {
+            top: -$circle-text-top;
+        }
+    }
+}
